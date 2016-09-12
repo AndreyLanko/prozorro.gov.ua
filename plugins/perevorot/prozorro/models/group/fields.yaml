@@ -1,0 +1,18 @@
+fields:
+    title:
+        label: Название
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    slug:
+        label: Гиперссылка
+        oc.commentPosition: ''
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    is_enabled:
+        label: 'Выводить на сайт'
+        span: auto
+        type: switch

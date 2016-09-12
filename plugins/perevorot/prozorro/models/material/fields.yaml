@@ -1,0 +1,38 @@
+fields:
+    title:
+        label: Название
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    slug:
+        label: Гиперссылка
+        oc.commentPosition: ''
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    author:
+        label: Автор
+        oc.commentPosition: ''
+        span: auto
+        type: dropdown
+    group:
+        label: Группа
+        oc.commentPosition: ''
+        span: auto
+        type: dropdown
+    image:
+        label: Картинка
+        oc.commentPosition: ''
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: auto
+            extension: auto
+        span: auto
+        type: fileupload
+    is_enabled:
+        label: 'Выводить на сайт'
+        span: auto
+        type: switch

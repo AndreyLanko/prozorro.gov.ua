@@ -1,0 +1,16 @@
+fields:
+    title:
+        label: 'Заголовок вакансии'
+        oc.commentPosition: ''
+        span: full
+        type: text
+    description:
+        label: Содержимое
+        size: huge
+        oc.commentPosition: ''
+        span: full
+        type: textarea
+    is_enabled:
+        label: 'Выводить на сайт'
+        span: auto
+        type: switch

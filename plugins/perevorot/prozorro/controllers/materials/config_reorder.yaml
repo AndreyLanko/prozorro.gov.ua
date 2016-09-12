@@ -1,0 +1,4 @@
+title: Materials
+modelClass: Perevorot\Prozorro\Models\Material
+toolbar:
+    buttons: reorder_toolbar

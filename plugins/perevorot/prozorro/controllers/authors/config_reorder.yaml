@@ -1,0 +1,4 @@
+title: Authors
+modelClass: Perevorot\Prozorro\Models\Author
+toolbar:
+    buttons: reorder_toolbar
