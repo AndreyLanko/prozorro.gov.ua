@@ -1,0 +1,10 @@
+name: Calendar
+form: $/perevorot/prozorro/models/calendar/fields.yaml
+modelClass: Perevorot\Prozorro\Models\Calendar
+defaultRedirect: perevorot/prozorro/calendar
+create:
+    redirect: 'perevorot/prozorro/calendar/update/:id'
+    redirectClose: perevorot/prozorro/calendar
+update:
+    redirect: perevorot/prozorro/calendar
+    redirectClose: perevorot/prozorro/calendar

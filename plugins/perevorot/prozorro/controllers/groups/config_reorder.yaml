@@ -1,0 +1,4 @@
+title: Groups
+modelClass: Perevorot\Prozorro\Models\Group
+toolbar:
+    buttons: reorder_toolbar

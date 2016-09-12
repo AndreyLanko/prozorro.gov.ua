@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => env('APP_URL', 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +81,7 @@ return [
     |
     */
 
-    'key' => 'RCOaxPRzk5fyCEoHDp9H96zhLvcN42Yx',
+    'key' => env('APP_KEY', 'RCOaxPRzk5fyCEoHDp9H96zhLvcN42Yx'),
 
     'cipher' => 'AES-256-CBC',
 

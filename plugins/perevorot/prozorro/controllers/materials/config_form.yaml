@@ -1,0 +1,10 @@
+name: Materials
+form: $/perevorot/prozorro/models/material/fields.yaml
+modelClass: Perevorot\Prozorro\Models\Material
+defaultRedirect: perevorot/prozorro/materials
+create:
+    redirect: 'perevorot/prozorro/materials/update/:id'
+    redirectClose: perevorot/prozorro/materials
+update:
+    redirect: perevorot/prozorro/materials
+    redirectClose: perevorot/prozorro/materials

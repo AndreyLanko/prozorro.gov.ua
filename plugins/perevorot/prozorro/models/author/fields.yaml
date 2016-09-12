@@ -1,0 +1,14 @@
+fields:
+    fio:
+        label: ФИО
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    slug:
+        label: Гиперссылка
+        oc.commentPosition: ''
+        span: auto
+        preset:
+            field: fio
+            type: slug
+        type: text

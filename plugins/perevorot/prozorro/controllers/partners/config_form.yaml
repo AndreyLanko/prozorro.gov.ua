@@ -1,0 +1,10 @@
+name: Partners
+form: $/perevorot/prozorro/models/partner/fields.yaml
+modelClass: Perevorot\Prozorro\Models\Partner
+defaultRedirect: perevorot/prozorro/partners
+create:
+    redirect: 'perevorot/prozorro/partners/update/:id'
+    redirectClose: perevorot/prozorro/partners
+update:
+    redirect: perevorot/prozorro/partners
+    redirectClose: perevorot/prozorro/partners

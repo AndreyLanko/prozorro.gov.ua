@@ -1,0 +1,7 @@
+columns:
+    fio:
+        label: ФИО
+        type: text
+    slug:
+        label: Гиперссылка
+        type: text
