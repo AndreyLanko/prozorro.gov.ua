@@ -1,0 +1,5 @@
+title: Pages
+nameFrom: title
+modelClass: Perevorot\Page\Models\BackendPage
+toolbar:
+    buttons: reorder_toolbar

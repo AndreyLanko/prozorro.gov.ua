@@ -1,0 +1,33 @@
+fields:
+    url_mask:
+        label: Гиперссылка
+        comment: 'Шаблон с возможностью использования маски. Например: /, /*, /news, /news/*, /news/some-news-href'
+        span: left
+        type: text
+    meta_tags:
+        label: 'Дополнительные теги'
+        size: huge
+        span: right
+        type: textarea
+    title:
+        label: Title
+        comment: 'Шаблон заголовка страницы. Например: Добро пожаловать {{page.title}}! {{default.description}} {{seo.title[''/'']}}'
+        size: tiny
+        span: left
+        type: textarea
+    description:
+        label: Description
+        comment: 'В шаблонах также доступно использование условий или циклов. Например: {% if post|length > 0 %}Всего статей: {{post|length}}{% endif %}'
+        size: tiny
+        span: left
+        type: textarea
+    keywords:
+        label: Keywords
+        comment: 'Для вывода доступны системные объекты: default.title, default.description, default.keywords. А так же динамичные объекты: seo.title[''/''], seo.title[''/news''] для вывода заголовков других страниц'
+        size: tiny
+        span: left
+        type: textarea
+    canonical:
+        label: Canonical
+        span: left
+        type: text

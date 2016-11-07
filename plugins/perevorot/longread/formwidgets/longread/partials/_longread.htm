@@ -1,0 +1,100 @@
+<div class="loading-indicator-container indicator-center" data-load-indicator>
+    <div class="layout control-toolbar editor-toolbar" longread-nav style="height:40px">
+        <div class="layout-cell toolbar-item">
+            <div data-control="toolbar">
+                <?php foreach($blocksGroups as $alias=>$group): ?>
+                    <?php if(!empty($group['blocks'])): ?>
+                        <div class="dropdown dropdown-fixed">
+                            <button
+                                type="button"
+                                class="btn"
+                                title="<?=$group['name']?>"
+                                data-toggle="dropdown"
+                                data-control="tooltip"
+                                data-placement="bottom"
+                                data-container="body">
+                                <i class="<?=$group['icon']?>"></i>
+                            </button>
+                            <ul class="dropdown-menu" data-dropdown-title="<?=$group['name']?>">
+                                <?php foreach($group['blocks'] as $alias=>$block): ?>
+                                    <li>
+                                        <a
+                                            href="#"
+                                            data-request="<?= $this->getEventHandler('onAddItem') ?>"
+                                            data-request-success="$('html, body').animate({ scrollTop: $(document).height() });"
+                                            data-request-complete="setTimeout(function(){ $('.field-longread-item').removeClass('blink'); }, 500)"
+                                            data-request-data="'<?= $aliasPrefix ?>': '<?= $alias ?>'">
+                                            <?=$block['name']?>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php else: ?>
+                        <a
+                            href="#"
+                            type="button"
+                            class="btn"
+                            title="<?=$group['name']?>"
+                            data-toggle="dropdown"
+                            data-control="tooltip"
+                            data-placement="bottom"
+                            data-container="body"
+                            data-request="<?= $this->getEventHandler('onAddItem') ?>"
+                            data-request-success="$('html, body').animate({ scrollTop: $(document).height() });"
+                            data-request-complete="setTimeout(function(){ $('.field-longread-item').removeClass('blink'); }, 500)"
+                            data-request-data="'<?= $aliasPrefix ?>': '<?= $alias ?>'">
+                            <i class="<?=$group['icon']?>"></i>
+                        </a>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+
+                <button type="button" disabled class="btn">
+                    <i></i>
+                </button>
+
+                <div class="dropdown dropdown-fixed">
+                    <button
+                        type="button"
+                        class="btn"
+                        title="Скопировать блоки из..."
+                        data-toggle="dropdown"
+                        data-control="tooltip"
+                        data-placement="bottom"
+                        data-container="body">
+                        <i class="icon-sign-in"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <?php foreach ($availableLanguages as $alias => $language): ?>
+                            <?php if($alias != $currentLang): ?>
+                                <li role="presentation">
+                                    <li><a href="#" data-request="<?= $this->getEventHandler('onCopyLongread') ?>" data-request-data="'fromFieldName': '<?= $language->code ?>'"><?= $language->name ?></a></li>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="layout longread-layout-main longread-layout-main-item">
+	<div class="layout-cell">
+        <div class="layout-relative">
+            <div class="stretch size-large">
+                <div class="field-longread" data-control="fieldlongread">
+                    <ul id="<?= $this->getId('items') ?>" class="field-longread-items">
+                        <?php foreach ($this->formWidgets as $index => $widget): ?>
+                            <?= $this->makePartial('longread_item', [
+                                'widget' => $widget,
+                                'indexValue' => $index,
+                                'aliasValue' => $widget->vars['aliasValue'],
+                            ]) ?>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>

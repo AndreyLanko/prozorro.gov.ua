@@ -1,0 +1,10 @@
+plugin:
+    name: 'perevorot.page::lang.plugin.name'
+    description: 'perevorot.page::lang.plugin.description'
+    author: Perevorot
+    icon: icon-files-o
+    homepage: ''
+permissions:
+    page:
+        tab: 'perevorot.page::lang.permission.tab'
+        label: 'perevorot.page::lang.permissions.page'

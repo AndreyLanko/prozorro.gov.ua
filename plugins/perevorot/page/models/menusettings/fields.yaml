@@ -1,0 +1,8 @@
+fields:
+    menu:
+      label: Menu
+      type: dropdown
+
+    sub_menu:
+      label: Submenu
+      type: dropdown

@@ -1,0 +1,13 @@
+columns:
+    url_mask:
+        label: Гиперссылка
+        type: text
+    title:
+        label: Title
+        type: text
+    description:
+        label: Description
+        type: text
+    keywords:
+        label: Keywords
+        type: text

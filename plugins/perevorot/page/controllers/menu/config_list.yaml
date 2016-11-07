@@ -1,0 +1,11 @@
+list: $/perevorot/page/models/menu/columns.yaml
+modelClass: Perevorot\Page\Models\Menu
+title: 'perevorot.page::lang.form.menu.name'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: false
+showCheckboxes: false
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'perevorot/page/menu/update/:id'

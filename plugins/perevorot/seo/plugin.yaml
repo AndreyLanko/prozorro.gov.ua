@@ -1,0 +1,11 @@
+plugin:
+    name: 'perevorot.seo::lang.plugin.name'
+    description: 'perevorot.seo::lang.plugin.description'
+    author: Perevorot
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    Seo-menu-item:
+        label: SEO
+        url: perevorot/seo/seo
+        icon: icon-life-ring

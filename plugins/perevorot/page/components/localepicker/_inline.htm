@@ -1,0 +1,10 @@
+{% if locales|length > 1 %}
+    <span class="sb-lang-selector" data-js="jsLangSelector">
+        <span class="sb-lang-selector__button"></span>
+        <ul class="sb-lang-selector__list" js-lang-list>
+            {% for code, locale in locales %}
+                <li><a href="{{ locale.url }}" class="{{ code == activeLocale ? 'jsLangListItemActive' }}">{{ locale.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </span>
+{% endif %}

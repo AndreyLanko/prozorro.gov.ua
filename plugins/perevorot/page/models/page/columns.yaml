@@ -1,0 +1,61 @@
+columns:
+    title:
+        label: 'perevorot.page::lang.list.page.title'
+        type: text
+        searchable: true
+
+    url:
+        label: 'perevorot.page::lang.list.page.url'
+        type: partial
+        searchable: true
+
+#     content:
+#         label: 'perevorot.page::lang.list.page.content'
+#         searchable: true
+#         type: partial
+
+    is_target_blank:
+        label: 'perevorot.page::lang.list.page.is_target_blank'
+        type: switch
+        invisible: true
+
+    is_hidden:
+        label: 'perevorot.page::lang.list.page.is_hidden'
+        type: switch
+
+    meta_title:
+        label: 'perevorot.page::lang.list.page.meta_title'
+        searchable: true
+        type: text
+        invisible: true
+
+    meta_description:
+        label: 'perevorot.page::lang.list.page.meta_description'
+        searchable: true
+        type: text
+        invisible: true
+
+    layout:
+        label: 'perevorot.page::lang.list.page.layout'
+        searchable: true
+
+    is_cache_ignore:
+        label: 'perevorot.page::lang.form.page.is_cache_ignore'
+        invisible: true
+        type: switch
+    is_closed_by_direct_open:
+        label: 'perevorot.page::lang.form.page.is_closed_by_direct_open'
+        invisible: true
+        type: switch
+    is_target_blank:
+        label: 'perevorot.page::lang.form.page.is_target_blank'
+        invisible: true
+        type: switch
+    is_hidden:
+        label: 'perevorot.page::lang.form.page.is_hidden'
+        invisible: true
+        type: switch
+    is_disabled:
+        label: 'perevorot.page::lang.form.page.is_disabled'
+        invisible: true
+        type: switch

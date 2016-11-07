@@ -1,0 +1,24 @@
+<li class="field-longread-item<?=post('_session_key')?' blink':''?>">
+    <div class="longread-item-handle repeater-item-handle">
+        <i class="icon-bars"></i>
+    </div>
+    <div class="longread-item-remove">
+        <button
+            type="button"
+            class="close"
+            aria-label="Remove"
+            data-request="<?= $this->getEventHandler('onRemoveItem') ?>"
+            data-request-data="'index': '<?= $indexValue ?>'"
+            data-request-success="$(this).closest('.field-longread-item').remove()"
+            data-request-confirm="<?= e(trans('backend::lang.form.action_confirm')) ?>">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="field-longread-form">
+        <?php foreach ($widget->getFields() as $field): ?>
+            <?= $widget->renderField($field) ?>
+        <?php endforeach ?>
+    </div>
+    <input type="hidden" name="<?= $indexName ?>" value="<?= $indexValue ?>" />
+    <input type="hidden" name="<?= $aliasName ?>" value="<?= $aliasValue ?>" />
+</li>

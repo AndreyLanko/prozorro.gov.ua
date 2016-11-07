@@ -1,0 +1,11 @@
+columns:
+    title:
+        label: 'perevorot.page::lang.form.menu.title'
+        type: text
+        searchable: true
+        sortable: true
+    alias:
+        label: 'perevorot.page::lang.form.menu.alias'
+        type: text
+        searchable: true
+        sortable: true

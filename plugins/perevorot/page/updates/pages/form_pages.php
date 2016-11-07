@@ -1,0 +1,52 @@
+<?php
+
+return [
+    [
+        "title" => "Результат отправки формы \"Для Вас\"",
+        "url" => "/you-product/success",
+        "is_target_blank" => false,
+        "type" => 1,
+        "cms_page_id" => 0,
+        "is_hidden" => true,
+        "layout" => "inside",
+        "menu_id" => 1,
+        "nest_depth" => 0,
+        "is_disabled" => false,
+    ],
+    [
+        "title" => "Результат отправки формы \"Для Вас. Страхование\"",
+        "url" => "/you-insurance/success",
+        "is_target_blank" => false,
+        "type" => 1,
+        "cms_page_id" => 0,
+        "is_hidden" => true,
+        "layout" => "inside",
+        "menu_id" => 1,
+        "nest_depth" => 0,
+        "is_disabled" => false,
+    ],
+    [
+        "title" => "Результат отправки формы \"Для Вас. Недвижимость\"",
+        "url" => "/you-application/success",
+        "is_target_blank" => false,
+        "type" => 1,
+        "cms_page_id" => 0,
+        "is_hidden" => true,
+        "layout" => "inside",
+        "menu_id" => 1,
+        "nest_depth" => 0,
+        "is_disabled" => false,
+    ],
+    [
+        "title" => "Результат отправки формы \"Для вашего бизнеса\"",
+        "url" => "/you-business/success",
+        "is_target_blank" => false,
+        "type" => 1,
+        "cms_page_id" => 0,
+        "is_hidden" => true,
+        "layout" => "inside",
+        "menu_id" => 1,
+        "nest_depth" => 0,
+        "is_disabled" => false,
+    ]
+];

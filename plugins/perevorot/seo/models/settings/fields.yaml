@@ -1,0 +1,26 @@
+fields:
+    robots:
+        label: Robots
+        type: textarea
+
+    image:
+        label: Favicon
+        type: fileupload
+        valueFrom: favicon
+        fileTypes: ico,png,jpg,jpeg,gif
+
+    title:
+        type: text
+        label: Стандартный заголовок
+
+    description:
+        type: textarea
+        label: Стандартное описание
+
+    keywords:
+        type: textarea
+        label: Стандартные ключевые слова
+
+    additional_tags:
+        type: textarea
+        label: Дополнительные теги

@@ -1,0 +1,13 @@
+title: SEO
+modelClass: Perevorot\Seo\Models\Seo
+list: $/perevorot/seo/models/seo/columns.yaml
+recordUrl: 'perevorot/seo/seo/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+defaultSort:
+    column: url_mask
+    direction: asc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

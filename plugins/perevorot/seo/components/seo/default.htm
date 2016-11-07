@@ -1,0 +1,15 @@
+<title>{{ seo.title }}</title>
+<meta name="description" content="{{ seo.description }}">
+<meta name="keywords" content="{{ seo.keywords }}">
+{% if seo.canonical %}
+    <link rel="canonical" href="{{ seo.canonical }}"/>
+{% endif %}
+{% if settings.favicon %}
+    <link rel="shortcut icon" href="{{ settings.favicon.path }}" type="image/x-icon">
+{% endif %}
+{% if seo.meta_tags %}
+    {{ seo.meta_tags|raw }}
+{% endif %}
+{% if settings.additional_tags %}
+    {{ settings.additional_tags|raw }}
+{% endif %}

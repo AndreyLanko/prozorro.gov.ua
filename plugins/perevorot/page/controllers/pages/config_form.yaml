@@ -1,0 +1,10 @@
+name: 'perevorot.page::lang.form.page.name'
+form: $/perevorot/page/models/page/fields.yaml
+modelClass: Perevorot\Page\Models\Page
+defaultRedirect: 'perevorot/page/pages/?menu=:menu_id'
+create:
+    redirect: 'perevorot/page/pages/update/:id/?menu=:menu_id'
+    redirectClose: 'perevorot/page/pages/?menu=:menu_id'
+update:
+    redirect: 'perevorot/page/pages/?menu=:menu_id'
+    redirectClose: 'perevorot/page/pages/?menu=:menu_id'

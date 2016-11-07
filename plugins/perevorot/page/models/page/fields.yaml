@@ -1,0 +1,135 @@
+fields:
+    title:
+        label: 'perevorot.page::lang.form.page.title'
+        placeholder: 'perevorot.page::lang.form.page.placeholder_title'
+        span: left
+        type: text
+    url:
+        label: 'perevorot.page::lang.form.page.url'
+        placeholder: 'perevorot.page::lang.form.page.placeholder_url'
+        type: text
+        span: right
+        cssClass: hide
+        preset:
+            field: title
+            type: url
+        trigger:
+            action: show
+            field: type
+            condition: 'value[1]'
+    url_external:
+        label: 'perevorot.page::lang.form.page.url_external'
+        placeholder: 'perevorot.page::lang.form.page.placeholder_url'
+        cssClass: hide
+        type: text
+        span: right
+        trigger:
+            action: show
+            field: type
+            condition: 'value[4]'
+    alias_page_id:
+        label: 'perevorot.page::lang.form.page.alias_page_id'
+        cssClass: hide
+        span: right
+        type: dropdown
+        trigger:
+            action: show
+            field: type
+            condition: 'value[3]'
+    cms_page_id:
+        label: 'perevorot.page::lang.form.page.cms_page_id'
+        span: right
+        type: dropdown
+        cssClass: hide
+        trigger:
+            action: show
+            field: type
+            condition: 'value[2]'
+    toolbar:
+        type: partial
+        path: form_toolbar
+        cssClass: collapse-visible
+secondaryTabs:
+    fields:
+        type:
+            label: 'perevorot.page::lang.form.page.type'
+            span: left
+            type: dropdown
+            containerAttributes:
+                style: 'padding:10px'
+            tab: Настройки
+        layout:
+            label: 'perevorot.page::lang.form.page.layout'
+            span: right
+            type: dropdown
+            containerAttributes:
+                style: 'padding:10px'
+            cssClass: hide
+            trigger:
+                action: show
+                field: type
+                condition: 'value[1]'
+            tab: Настройки
+        menu:
+            type: partial
+            path: $/perevorot/page/controllers/pages/_menu_field.htm
+            tab: Настройки
+        is_cache_ignore:
+            label: 'perevorot.page::lang.form.page.is_cache_ignore'
+            comment: 'perevorot.page::lang.form.page.is_cache_ignore_comment'
+            type: switch
+            containerAttributes:
+                style: 'padding:10px'
+            tab: Настройки
+        is_closed_by_direct_open:
+            label: 'perevorot.page::lang.form.page.is_closed_by_direct_open'
+            comment: 'perevorot.page::lang.form.page.is_closed_by_direct_open_comment'
+            type: switch
+            containerAttributes:
+                style: 'padding:10px'
+            tab: Настройки
+        is_target_blank:
+            label: 'perevorot.page::lang.form.page.is_target_blank'
+            type: switch
+            containerAttributes:
+                style: 'padding:10px'
+            tab: Настройки
+        is_hidden:
+            label: 'perevorot.page::lang.form.page.is_disabled'
+            comment: 'perevorot.page::lang.form.page.is_disabled_comment'
+            type: switch
+            default: false
+            containerAttributes:
+                style: 'padding:10px'
+            tab: Настройки
+        is_disabled:
+            label: 'perevorot.page::lang.form.page.is_hidden'
+            comment: 'perevorot.page::lang.form.page.is_hidden_comment'
+            type: switch
+            default: false
+            containerAttributes:
+                style: 'padding:10px'
+            tab: Настройки
+        meta_title:
+            label: 'perevorot.page::lang.form.page.meta_title'
+            span: full
+            cssClass: hide
+            trigger:
+                action: show
+                field: type
+                condition: 'value[1]'
+            containerAttributes:
+                style: 'padding:10px'
+            type: text
+            tab: 'perevorot.page::lang.form.page.seo_tab'
+        meta_description:
+            tab: 'perevorot.page::lang.form.page.seo_tab'
+            label: 'perevorot.page::lang.form.page.meta_description'
+            type: textarea
+            containerAttributes:
+                style: 'padding:10px'
+            cssClass: hide
+            trigger:
+                action: show
+                field: type
+                condition: 'value[1]'

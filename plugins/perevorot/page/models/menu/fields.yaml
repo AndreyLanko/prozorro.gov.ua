@@ -1,0 +1,12 @@
+fields:
+    title:
+        label: 'perevorot.page::lang.form.menu.title'
+        type: text
+        span: left
+    alias:
+        label: 'perevorot.page::lang.form.menu.alias'
+        type: text
+        span: right
+        preset:
+            field: title
+            type: slug
