@@ -98,11 +98,20 @@ The attribute will then contain the default language value and other language co
 
     $user->translateContext('fr');
 
-    // Sets the name in French
-    $user->name = 'Giselle';
-
     // Outputs the name in French
     echo $user->name;
+
+You may use the same process for setting values.
+
+    $user = User::first();
+
+    // Sets the name in the default language
+    $user->name = 'English';
+
+    $user->translateContext('fr');
+
+    // Sets the name in French
+    $user->name = 'Anglais';
 
 The `lang()` method is a shorthand version of `translateContext()` and is also chainable.
 
@@ -116,10 +125,64 @@ This can be useful inside a Twig template.
 There are ways to get and set attributes without changing the context.
 
     // Gets a single translated attribute for a language
-    $user->getTranslateAttribute('name', 'fr');
+    $user->getAttributeTranslated('name', 'fr');
 
     // Sets a single translated attribute for a language
-    $user->setTranslateAttribute('name', 'Jean-Claude', 'fr');
+    $user->setAttributeTranslated('name', 'Jean-Claude', 'fr');
+
+## Fallback attribute values
+
+By default, untranslated attributes will fall back to the default locale. This behavior can be disabled by calling the `noFallbackLocale` method.
+
+    $user = User::first();
+
+    $user->noFallbackLocale()->lang('fr');
+
+    // Returns NULL if there is no French translation
+    $user->name;
+
+## Indexed attributes
+
+Translatable model attributes can also be declared as an index by passing the `$transatable` attribute value as an array. The first value is the attribute name, the other values represent options, in this case setting the option `index` to `true`.
+
+        public $translatable = [
+            'name',
+            ['slug', 'index' => true]
+        ];
+
+Once an attribute is indexed, you may use the `transWhere` method to apply a basic query to the model.
+
+    Post::transWhere('slug', 'hello-world')->first();
+
+The `transWhere` method accepts a third argument to explicitly pass a locale value, otherwise it will be detected from the enivronment.
+
+    Post::transWhere('slug', 'hello-world', 'en')->first();
+
+## URL translation
+
+Pages in the CMS support translating the URL property. Assuming you have 3 languages set up:
+
+- en: English
+- fr: French
+- ru: Russian
+
+There is a page with the following content:
+
+```
+url = "/contact"
+
+[viewBag]
+localeUrl[ru] = "/контакт"
+==
+<p>Page content</p>
+```
+
+The word "Contact" in French is the same so a translated URL is not given, or needed. If the page has no URL override specified, then the default URL will be used. Pages will not be duplicated for a given language.
+
+- /fr/contact - Page in French
+- /en/contact - Page in English
+- /ru/контакт - Page in Russian
+- /ru/contact - 404
 
 ## Conditionally extending plugins
 

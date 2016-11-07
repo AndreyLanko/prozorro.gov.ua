@@ -24,7 +24,7 @@ abstract class TranslatableBehavior extends ExtensionBase
     protected $translatableContext;
 
     /**
-     * @var string Active language for translations.
+     * @var string Default system language.
      */
     protected $translatableDefault;
 
@@ -60,13 +60,13 @@ abstract class TranslatableBehavior extends ExtensionBase
 
         $this->model->bindEvent('model.beforeGetAttribute', function($key) {
             if ($this->isTranslatable($key)) {
-                return $this->getTranslateAttribute($key);
+                return $this->getAttributeTranslated($key);
             }
         });
 
         $this->model->bindEvent('model.beforeSetAttribute', function($key, $value) {
             if ($this->isTranslatable($key)) {
-                return $this->setTranslateAttribute($key, $value);
+                return $this->setAttributeTranslated($key, $value);
             }
         });
 
@@ -121,29 +121,51 @@ abstract class TranslatableBehavior extends ExtensionBase
      * @param  string $locale
      * @return string
      */
-    public function getTranslateAttribute($key, $locale = null)
+    public function getAttributeTranslated($key, $locale = null)
     {
         if ($locale == null) {
             $locale = $this->translatableContext;
         }
 
+        /*
+         * Result should not return NULL to successfully hook beforeGetAttribute event
+         */
+        $result = '';
+
+        /*
+         * Default locale
+         */
         if ($locale == $this->translatableDefault) {
-            return $this->getAttributeFromData($this->model->attributes, $key);
+            $result = $this->getAttributeFromData($this->model->attributes, $key);
+        }
+        /*
+         * Other locale
+         */
+        else {
+            if (!array_key_exists($locale, $this->translatableAttributes)) {
+                $this->loadTranslatableData($locale);
+            }
+
+            if ($this->hasTranslation($key, $locale)) {
+                $result = $this->getAttributeFromData($this->translatableAttributes[$locale], $key);
+            }
+            elseif ($this->translatableUseFallback) {
+                $result = $this->getAttributeFromData($this->model->attributes, $key);
+            }
         }
 
-        if (!array_key_exists($locale, $this->translatableAttributes)) {
-            $this->loadTranslatableData($locale);
+        /*
+         * Handle jsonable attributes, default locale may return the value as a string
+         */
+        if (
+            is_string($result) &&
+            method_exists($this->model, 'isJsonable') &&
+            $this->model->isJsonable($key)
+        ) {
+            $result = json_decode($result, true);
         }
 
-        if ($this->hasTranslation($key, $locale)) {
-            return $this->getAttributeFromData($this->translatableAttributes[$locale], $key);
-        }
-
-        if ($this->translatableUseFallback) {
-            return $this->getAttributeFromData($this->model->attributes, $key);
-        }
-
-        return null;
+        return $result;
     }
 
     /**
@@ -173,7 +195,7 @@ abstract class TranslatableBehavior extends ExtensionBase
      * @param  string $value Value to translate
      * @return string        Translated value
      */
-    public function setTranslateAttribute($key, $value, $locale = null)
+    public function setAttributeTranslated($key, $value, $locale = null)
     {
         if ($locale == null) {
             $locale = $this->translatableContext;
@@ -253,12 +275,49 @@ abstract class TranslatableBehavior extends ExtensionBase
     }
 
     /**
+     * Checks if this model has transatable attributes.
+     * @return true
+     */
+    public function hasTransatableAttributes()
+    {
+        return is_array($this->model->translatable) &&
+            count($this->model->translatable) > 0;
+    }
+
+    /**
      * Returns a collection of fields that will be hashed.
      * @return array
      */
     public function getTranslatableAttributes()
     {
-        return $this->model->translatable;
+        $translatable = [];
+
+        foreach ($this->model->translatable as $attribute) {
+            $translatable[] = is_array($attribute) ? array_shift($attribute) : $attribute;
+        }
+
+        return $translatable;
+    }
+
+    /**
+     * Returns the defined options for a translatable attribute.
+     * @return array
+     */
+    public function getTranslatableAttributesWithOptions()
+    {
+        $attributes = [];
+
+        foreach ($this->model->translatable as $options) {
+            if (!is_array($options)) {
+                continue;
+            }
+
+            $attributeName = array_shift($options);
+
+            $attributes[$attributeName] = $options;
+        }
+
+        return $attributes;
     }
 
     /**
@@ -353,4 +412,23 @@ abstract class TranslatableBehavior extends ExtensionBase
      */
     abstract protected function loadTranslatableData($locale = null);
 
+    /**
+     * @deprecated setTranslateAttribute is deprecated, use setAttributeTranslated instead.
+     * @todo Remove method if year >= 2017
+     */
+    public function setTranslateAttribute($key, $value, $locale = null)
+    {
+        traceLog(static::class . '::setTranslateAttribute is deprecated, use setAttributeTranslated instead.');
+        return $this->setAttributeTranslated($key, $value, $locale);
+    }
+
+    /**
+     * @deprecated getTranslateAttribute is deprecated, use getAttributeTranslated instead.
+     * @todo Remove method if year >= 2017
+     */
+    public function getTranslateAttribute($key, $locale = null)
+    {
+        traceLog(static::class . '::getTranslateAttribute is deprecated, use getAttributeTranslated instead.');
+        return $this->getAttributeTranslated($key, $locale);
+    }
 }

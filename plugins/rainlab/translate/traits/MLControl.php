@@ -1,5 +1,6 @@
 <?php namespace RainLab\Translate\Traits;
 
+use Str;
 use RainLab\Translate\Models\Locale;
 use Backend\Classes\FormWidgetBase;
 use October\Rain\Html\Helper as HtmlHelper;
@@ -89,11 +90,19 @@ trait MLControl
      */
     public function getLocaleValue($locale)
     {
-        if ($this->model->methodExists('getTranslateAttribute')) {
-            return $this->model->noFallbackLocale()->getTranslateAttribute(
-                $this->valueFrom ?: $this->fieldName,
-                $locale
-            );
+        $key = $this->valueFrom ?: $this->fieldName;
+
+        /*
+         * Get the translated values from the model
+         */
+        $studKey = Str::studly(implode(' ', HtmlHelper::nameToArray($key)));
+        $mutateMethod = 'get'.$studKey.'AttributeTranslated';
+
+        if ($this->model->methodExists($mutateMethod)) {
+            return $this->model->$mutateMethod($locale);
+        }
+        elseif ($this->model->methodExists('getAttributeTranslated')) {
+            return $this->model->noFallbackLocale()->getAttributeTranslated($key, $locale);
         }
         else {
             return $this->formField->value;
@@ -121,17 +130,22 @@ trait MLControl
     public function getLocaleSaveValue($value)
     {
         $localeData = $this->getLocaleSaveData();
+        $key = $this->valueFrom ?: $this->fieldName;
 
         /*
          * Set the translated values to the model
          */
-        if ($this->model->methodExists('setTranslateAttribute')) {
+        $studKey = Str::studly(implode(' ', HtmlHelper::nameToArray($key)));
+        $mutateMethod = 'set'.$studKey.'AttributeTranslated';
+
+        if ($this->model->methodExists($mutateMethod)) {
             foreach ($localeData as $locale => $value) {
-                $this->model->setTranslateAttribute(
-                    $this->valueFrom ?: $this->fieldName,
-                    $value,
-                    $locale
-                );
+                $this->model->$mutateMethod($value, $locale);
+            }
+        }
+        elseif ($this->model->methodExists('setAttributeTranslated')) {
+            foreach ($localeData as $locale => $value) {
+                $this->model->setAttributeTranslated($key, $value, $locale);
             }
         }
 
@@ -152,9 +166,11 @@ trait MLControl
         }
 
         $fieldName = implode('.', HtmlHelper::nameToArray($this->fieldName));
+        $isJson = $this->isLocaleFieldJsonable();
 
         foreach ($data as $locale => $_data) {
-            $values[$locale] = array_get($_data, $fieldName);
+            $value = array_get($_data, $fieldName);
+            $values[$locale] = $isJson ? json_decode($value, true) : $value;
         }
 
         return $values;
@@ -167,5 +183,14 @@ trait MLControl
     public function getFallbackType()
     {
         return defined('static::FALLBACK_TYPE') ? static::FALLBACK_TYPE : 'text';
+    }
+
+    /**
+     * Returns true if the field is specified as jsonable in the model.
+     * @return bool
+     */
+    public function isLocaleFieldJsonable()
+    {
+        return method_exists($this->model, 'isJsonable') && $this->model->isJsonable($this->fieldName);
     }
 }

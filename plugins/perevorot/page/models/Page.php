@@ -15,8 +15,6 @@ class Page extends TreeModel
     use \Perevorot\Page\Traits\PageModelOptions;
     use \Perevorot\Page\Traits\CustomValidationMessages;
 
-    use \Perevorot\Rialtotender\Traits\IconOptions;
-
     use \October\Rain\Database\Traits\Validation;
 
     const PAGE_TYPE_STATIC=1;
@@ -46,11 +44,10 @@ class Page extends TreeModel
      * @var array
      */
     public $rules = [
-//        'title'=>'required',
+        'title'=>'required',
         'type'=>'required',
         'menu'=>'required',
         'url'=>'required_if:type,'.self::PAGE_TYPE_STATIC.'|unique:perevorot_page_page|regex:/^[\/A-Za-z0-9\-_\:    ]+$/',
-        //'content'=>'required_if:type,'.self::PAGE_TYPE_STATIC,
         'alias_page_id'=>'required_if:type,'.self::PAGE_TYPE_ALIAS,
         'cms_page_id'=>'required_if:type,'.self::PAGE_TYPE_CMS,
         'url_external'=>'required_if:type,'.self::PAGE_TYPE_EXTERNAL.'|url',
