@@ -1,0 +1,7 @@
+columns:
+    hyperlink:
+        label: Гиперссылка
+        type: text
+    is_enabled:
+        label: 'Выводить на сайте'
+        type: switch

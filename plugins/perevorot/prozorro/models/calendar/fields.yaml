@@ -1,0 +1,72 @@
+fields:
+    title:
+        label: Название
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    slug:
+        label: Гиперссылка
+        oc.commentPosition: ''
+        span: auto
+        preset:
+            field: title
+            type: slug
+        type: text
+    phone:
+        label: 'Номер телефона'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    email:
+        label: 'Электронный адрес'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    description:
+        label: Описание
+        size: large
+        oc.commentPosition: ''
+        span: full
+        type: textarea
+    date:
+        label: Дата
+        oc.commentPosition: ''
+        mode: date
+        span: full
+        type: datepicker
+    start_time:
+        label: 'Время начала'
+        oc.commentPosition: ''
+        mode: time
+        span: auto
+        type: datepicker
+    end_time:
+        label: 'Время завершения'
+        oc.commentPosition: ''
+        mode: time
+        span: auto
+        type: datepicker
+    is_enabled:
+        label: 'Выводить на сайт'
+        span: auto
+        type: switch
+    programm:
+        label: Программа
+        oc.commentPosition: ''
+        prompt: 'Добавить новую запись'
+        span: full
+        type: repeater
+        form:
+            fields:
+                time:
+                    label: Время
+                    oc.commentPosition: ''
+                    mode: time
+                    span: auto
+                    type: datepicker
+                content:
+                    label: Описание
+                    size: ''
+                    oc.commentPosition: ''
+                    span: auto
+                    type: textarea

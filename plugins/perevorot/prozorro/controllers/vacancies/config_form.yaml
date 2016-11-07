@@ -1,0 +1,10 @@
+name: Vacancies
+form: $/perevorot/prozorro/models/vacancy/fields.yaml
+modelClass: Perevorot\Prozorro\Models\Vacancy
+defaultRedirect: perevorot/prozorro/vacancies
+create:
+    redirect: 'perevorot/prozorro/vacancies/update/:id'
+    redirectClose: perevorot/prozorro/vacancies
+update:
+    redirect: perevorot/prozorro/vacancies
+    redirectClose: perevorot/prozorro/vacancies

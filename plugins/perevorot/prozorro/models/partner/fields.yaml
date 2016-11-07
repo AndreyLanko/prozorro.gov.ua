@@ -1,0 +1,20 @@
+fields:
+    logo:
+        label: Логотип
+        oc.commentPosition: ''
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    hyperlink:
+        label: Гиперссылка
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    is_enabled:
+        label: 'Выводить на сайте'
+        span: auto
+        type: switch

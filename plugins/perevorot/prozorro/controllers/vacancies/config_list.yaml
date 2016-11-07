@@ -1,0 +1,11 @@
+list: $/perevorot/prozorro/models/vacancy/columns.yaml
+modelClass: Perevorot\Prozorro\Models\Vacancy
+title: Vacancies
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'perevorot/prozorro/vacancies/update/:id'

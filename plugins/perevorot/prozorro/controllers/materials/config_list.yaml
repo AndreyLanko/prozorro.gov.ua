@@ -1,0 +1,11 @@
+list: $/perevorot/prozorro/models/material/columns.yaml
+modelClass: Perevorot\Prozorro\Models\Material
+title: Materials
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'perevorot/prozorro/materials/update/:id'

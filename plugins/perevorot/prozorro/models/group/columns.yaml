@@ -1,0 +1,10 @@
+columns:
+    title:
+        label: Название
+        type: text
+    slug:
+        label: Гиперссылка
+        type: text
+    is_enabled:
+        label: 'Выводить на сайт'
+        type: switch

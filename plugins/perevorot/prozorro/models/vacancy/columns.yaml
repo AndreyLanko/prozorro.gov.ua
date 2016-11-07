@@ -1,0 +1,7 @@
+columns:
+    title:
+        label: 'Заголовок вакансии'
+        type: text
+    is_enabled:
+        label: 'Выводить на сайт'
+        type: switch

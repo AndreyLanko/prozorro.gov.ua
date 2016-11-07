@@ -1,0 +1,56 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table perevorot_prozorro_authors'
+    - builder_table_create_perevorot_prozorro_authors.php
+1.0.3:
+    - 'Add unique index to slug column in authors table'
+    - builder_table_update_perevorot_prozorro_authors.php
+1.0.4:
+    - 'Created table perevorot_prozorro_materials_group'
+    - builder_table_create_perevorot_prozorro_materials_group.php
+1.0.5:
+    - 'Add unique index to slug column in materials_group table'
+    - builder_table_update_perevorot_prozorro_materials_group.php
+1.0.6:
+    - 'Created table perevorot_prozorro_materials'
+    - builder_table_create_perevorot_prozorro_materials.php
+1.0.8:
+    - 'Updated table perevorot_prozorro_materials'
+    - builder_table_update_perevorot_prozorro_materials_2.php
+1.0.9:
+    - 'Add some indexes in materials table'
+    - builder_table_update_perevorot_prozorro_materials.php
+1.0.10:
+    - 'Created table perevorot_prozorro_calendar'
+    - builder_table_create_perevorot_prozorro_calendar.php
+1.0.11:
+    - 'Add unique index to slug column in calendart table'
+    - builder_table_update_perevorot_prozorro_calendar.php
+1.0.12:
+    - 'Created table perevorot_prozorro_partners'
+    - builder_table_create_perevorot_prozorro_partners.php
+1.0.13:
+    - 'Created table perevorot_prozorro_vacancies'
+    - builder_table_create_perevorot_prozorro_vacancies.php
+1.0.14:
+    - 'Updated table perevorot_prozorro_calendar'
+    - builder_table_update_perevorot_prozorro_calendar_2.php
+1.0.15:
+    - 'Updated table perevorot_prozorro_materials'
+    - builder_table_update_perevorot_prozorro_materials_3.php
+1.0.16:
+    - 'Updated table perevorot_prozorro_partners'
+    - builder_table_update_perevorot_prozorro_partners.php
+1.0.17:
+    - 'Updated table perevorot_prozorro_vacancies'
+    - builder_table_update_perevorot_prozorro_vacancies.php
+1.0.18:
+    - 'Updated table perevorot_prozorro_materials_group'
+    - builder_table_update_perevorot_prozorro_materials_group_2.php
+1.0.19:
+    - 'Updated table perevorot_prozorro_materials'
+    - builder_table_update_perevorot_prozorro_materials_4.php
+1.0.20:
+    - 'Updated table perevorot_prozorro_calendar'
+    - builder_table_update_perevorot_prozorro_calendar_3.php

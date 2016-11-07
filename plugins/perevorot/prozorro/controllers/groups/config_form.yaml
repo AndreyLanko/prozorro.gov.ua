@@ -1,0 +1,10 @@
+name: Groups
+form: $/perevorot/prozorro/models/group/fields.yaml
+modelClass: Perevorot\Prozorro\Models\Group
+defaultRedirect: perevorot/prozorro/groups
+create:
+    redirect: 'perevorot/prozorro/groups/update/:id'
+    redirectClose: perevorot/prozorro/groups
+update:
+    redirect: perevorot/prozorro/groups
+    redirectClose: perevorot/prozorro/groups

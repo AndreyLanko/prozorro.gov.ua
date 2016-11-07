@@ -1,0 +1,10 @@
+name: Authors
+form: $/perevorot/prozorro/models/author/fields.yaml
+modelClass: Perevorot\Prozorro\Models\Author
+defaultRedirect: perevorot/prozorro/authors
+create:
+    redirect: 'perevorot/prozorro/authors/update/:id'
+    redirectClose: perevorot/prozorro/authors
+update:
+    redirect: perevorot/prozorro/authors
+    redirectClose: perevorot/prozorro/authors

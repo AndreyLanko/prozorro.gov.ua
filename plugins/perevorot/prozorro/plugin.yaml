@@ -1,0 +1,36 @@
+plugin:
+    name: 'perevorot.prozorro::lang.plugin.name'
+    description: 'perevorot.prozorro::lang.plugin.description'
+    author: Perevorot
+    icon: oc-icon-heart
+    homepage: ''
+navigation:
+    prozorro:
+        label: Prozorro
+        url: perevorot/prozorro/materials
+        icon: icon-heart
+        sideMenu:
+            authors:
+                label: Автора
+                url: perevorot/prozorro/authors
+                icon: icon-users
+            calendar:
+                label: Календар
+                url: perevorot/prozorro/calendar
+                icon: icon-calendar
+            materials-group:
+                label: 'Группы материалов'
+                url: perevorot/prozorro/groups
+                icon: icon-group
+            materials:
+                label: Материалы
+                url: perevorot/prozorro/materials
+                icon: icon-sitemap
+            partners:
+                label: Партнеры
+                url: perevorot/prozorro/partners
+                icon: icon-sitemap
+            vacancies:
+                label: Вакансии
+                url: perevorot/prozorro/vacancies
+                icon: icon-sitemap
