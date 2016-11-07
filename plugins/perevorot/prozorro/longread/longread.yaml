@@ -1,0 +1,139 @@
+text_blocks:
+    name: Текстовые блоки
+    icon: icon-paragraph
+    blocks:
+        text:
+            name: Текстовый блок
+            fields:
+                section:
+                    type: section
+                    comment: Текстовый блок
+                text_title:
+                    label: Заголовок
+                    span: full
+                    type: text
+                text_text:
+                    label: Текст
+                    span: full
+                    type: richeditor
+        twoColumn:
+            name: Текст в две колонки
+            fields:
+                section:
+                    type: section
+                    comment: Текст в две колонки
+                tcolumn_title:
+                    label: Заголовок блока
+                    span: full
+                    type: text
+                tcolumn_first:
+                    label: Левая колонка
+                    type: richeditor
+                    span: left
+                tcolumn_second:
+                    label: Правая колонка
+                    type: richeditor
+                    span: right
+
+button_blocks:
+    name: Кнопки
+    icon: icon-laptop
+    blocks:
+        button:
+            name: Кнопка
+            fields:
+                section:
+                    type: section
+                    comment: Кнопка
+                button_text:
+                    label: Текст на кнопке
+                    span: left
+                    type: text
+                button_url:
+                    label: Гиперссылка
+                    span: right
+                    type: text
+                button_bgcolor:
+                    label: Цвет фона
+                    span: full
+                    type: dropdown
+                    options:
+                        transparent: Прозрачный
+                        white: Белый
+                        grey: Серый
+
+ready_blocks:
+    name: Готовые блоки
+    icon: icon-th-large
+    blocks:
+        searchForm:
+            name: Форма поиска
+            fields:
+                section:
+                    type: section
+                    comment: Форма поиска
+                search_form_title:
+                    label: Заголовок
+                    span: full
+                    type: text
+
+image_blocks:
+    name: Картинки
+    icon: icon-picture-o
+    blocks:
+        backgroundImage:
+            name: Блок с картинкой на фоне
+            fields:
+                section:
+                    type: section
+                    comment: Блок с картинкой на фоне
+                background_image_title:
+                    label: Заголовок
+                    span: left
+                    type: text
+                background_image_image:
+                    label: Фоновая картинка
+                    type: fileupload
+                    mode: image
+                    span: right
+                    imageHeight: 200
+                background_image_title2:
+                    label: Второй заголовок
+                    span: left
+                    type: textarea
+                    size: small
+                background_image_button_text:
+                    label: Текст на кнопке
+                    span: left
+                    type: text
+                background_image_button_url:
+                    label: Гиперссылка на кнопке
+                    span: left
+                    type: text
+                background_image_bgcolor:
+                    label: Цвет под всем блоком
+                    type: colorpicker
+                    span: right
+embed:
+    name: Embed
+    icon: icon-file-code-o
+    fields:
+        section:
+            type: section
+            comment: Embed
+        embed_title:
+            label: Заголовок
+            span: left
+            type: text
+        embed_code:
+            label: Embed-код
+            span: right
+            type: textarea
+        embed_height:
+            label: Высота
+            span: left
+            type: number
+        embed_width:
+            label: Ширина
+            span: left
+            type: number
